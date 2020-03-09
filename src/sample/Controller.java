@@ -1,26 +1,21 @@
 package sample;
 
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.paint.Color;
-import javafx.stage.Stage;
 
-import java.awt.event.ActionEvent;
-import java.io.IOException;
 import java.net.URL;
 import java.sql.*;
 import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
+    public Connection conn;
+    public PreparedStatement pst = null;
+    public ResultSet resultSet = null;
     @FXML
     Button btnSignin;
     @FXML
     Button btnSignup;
-
     @FXML
     TextField txtUser;
     @FXML
@@ -33,6 +28,25 @@ public class Controller implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
 
     }
+
+    public static Connection databaseConneciton() {
+        Connection conexion = null;
+        try {
+            //Cargar el driver
+            Class.forName("org.postgresql.Driver");
+            // Establecemos la conexion con la BD
+            conexion = DriverManager.getConnection
+                    ("jdbc:postgresql://localhost/dbtest", "adminadmin", "adminadmin");
+            return conexion;
+        } catch (ClassNotFoundException e) {
+            e.getMessage();
+        } catch (SQLException e) {
+            e.getMessage();
+        }
+        return conexion;
+    }
+
+
 
     public void logIn() {
         if ((txtUser.getText().isEmpty() || txtPassword.getText().isEmpty())) {
@@ -63,10 +77,7 @@ public class Controller implements Initializable {
 
             } else {
                 System.out.println("Login correcte");
-                mostraDialog(Alert.AlertType.CONFIRMATION, "Login Correcte, benvingut "+ user, null, "Correcte");
-
-
-
+                mostraDialog(Alert.AlertType.CONFIRMATION, "Login Correcte, benvingut " + user, null, null);
 
             }
 
@@ -81,29 +92,29 @@ public class Controller implements Initializable {
             e.printStackTrace();
         }
 
-
+//        try {
+//            Parent appinside = FXMLLoader.load(getClass().getResource("appInside.fxml"));
+//            Scene scene = new Scene(appinside);
+//
+//            Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+//
+//            window.setScene(scene);
+//
+//            window.show();
+//
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
     }
 
-    private void mostraDialog(Alert.AlertType alertType, String info, String capcelera, String titul) {
+    public void mostraDialog(Alert.AlertType alertType, String info, String capcelera, String titul) {
         Alert alert = new Alert((alertType));
         alert.setContentText(info);
         alert.setHeaderText(capcelera);
         alert.showAndWait();
     }
-    private  void goApp (){
-        try {
-            Parent appinside = FXMLLoader.load(getClass().getResource("sample/appInside.fxml"));
-            Scene scene = new Scene(appinside);
-            Stage window = new Stage();
-            window.setScene(scene);
-            window.show();
 
 
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 }
 
 
