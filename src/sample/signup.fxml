@@ -10,85 +10,94 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Signup">
+<AnchorPane maxHeight="400.0" maxWidth="600.0" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Signup">
    <children>
-      <Pane prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <VBox prefHeight="400.0" prefWidth="600.0">
          <children>
-            <VBox prefHeight="400.0" prefWidth="600.0">
+            <HBox prefHeight="245.0" prefWidth="551.0">
                <children>
-                  <HBox prefHeight="245.0" prefWidth="551.0">
+                  <Pane prefHeight="440.0" prefWidth="100.0" />
+                  <GridPane fx:id="grid" hgap="5.0" prefHeight="205.0" prefWidth="241.0" vgap="5.0">
+                    <columnConstraints>
+                      <ColumnConstraints halignment="LEFT" maxWidth="150.0" minWidth="20.0" prefWidth="84.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="152.0" minWidth="20.0" prefWidth="152.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
                      <children>
-                        <Pane prefHeight="245.0" prefWidth="157.0" />
-                        <GridPane fx:id="grid" hgap="5.0" prefHeight="205.0" prefWidth="241.0" vgap="5.0">
-                          <columnConstraints>
-                            <ColumnConstraints halignment="LEFT" maxWidth="150.0" minWidth="20.0" prefWidth="84.0" />
-                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="152.0" minWidth="20.0" prefWidth="152.0" />
-                          </columnConstraints>
-                          <rowConstraints>
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                            <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                          </rowConstraints>
-                           <children>
-                              <Label text="User name" GridPane.rowIndex="2" />
-                              <Label text="Password" GridPane.rowIndex="3" />
-                              <Label text="Re-type" GridPane.rowIndex="4" />
-                              <Label text="Email" GridPane.rowIndex="5" />
-                              <Label text="First name" />
-                              <Label text="Last name" GridPane.rowIndex="1" />
-                              <TextField fx:id="txtFirstName" prefHeight="25.0" prefWidth="139.0" GridPane.columnIndex="1" />
-                              <TextField fx:id="txtLastName" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                              <TextField fx:id="txtUserName" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                              <TextField fx:id="txtEmail" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                              <PasswordField fx:id="txtPassword" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                              <PasswordField fx:id="txtRetype" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                           </children>
-                           <HBox.margin>
-                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                           </HBox.margin>
-                        </GridPane>
-                        <Pane opacity="0.16" prefHeight="245.0" prefWidth="90.0" style="-fx-rotate: -25; -fx-background-color: blue;" translateX="10.0">
-                           <padding>
-                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                           </padding>
-                           <opaqueInsets>
-                              <Insets />
-                           </opaqueInsets>
-                           <rotationAxis>
-                              <Point3D y="10.0" z="1.0" />
-                           </rotationAxis>
-                        </Pane>
+                        <Label text="User name" GridPane.rowIndex="2" />
+                        <Label text="Password" GridPane.rowIndex="3" />
+                        <Label text="Re-type" GridPane.rowIndex="4" />
+                        <Label text="Email" GridPane.rowIndex="5" />
+                        <Label text="First name" />
+                        <Label text="Last name" GridPane.rowIndex="1" />
+                        <TextField fx:id="txtFirstName" prefHeight="25.0" prefWidth="139.0" GridPane.columnIndex="1" />
+                        <TextField fx:id="txtLastName" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <TextField fx:id="txtUserName" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <TextField fx:id="txtEmail" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                        <PasswordField fx:id="txtPassword" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <PasswordField fx:id="txtRetype" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                      </children>
-                  </HBox>
-                  <Label fx:id="lbl_error" alignment="CENTER" contentDisplay="CENTER" prefHeight="31.0" prefWidth="606.0" text="error" textAlignment="CENTER" textFill="#ba2222c7" />
-                  <HBox alignment="CENTER" prefHeight="65.0" prefWidth="578.0">
-                     <children>
-                        <Button fx:id="btnSignup" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="25.0" prefWidth="70.0" text="Signup">
-                           <HBox.margin>
-                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                           </HBox.margin>
-                        </Button>
-                        <Button fx:id="btnCancel" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="25.0" prefWidth="70.0" text="Cancel">
-                           <HBox.margin>
-                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                           </HBox.margin>
-                        </Button>
-                     </children>
-                     <opaqueInsets>
-                        <Insets />
-                     </opaqueInsets>
-                     <VBox.margin>
+                     <HBox.margin>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                     </VBox.margin>
+                     </HBox.margin>
+                  </GridPane>
+                  <Pane opacity="0.16" prefHeight="245.0" prefWidth="90.0" style="-fx-rotate: -25; -fx-background-color: blue;" translateX="10.0">
                      <padding>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </padding>
-                  </HBox>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <rotationAxis>
+                        <Point3D y="10.0" z="1.0" />
+                     </rotationAxis>
+                  </Pane>
                </children>
-            </VBox>
+            </HBox>
+            <Label fx:id="lbl_error" alignment="CENTER" contentDisplay="CENTER" prefHeight="31.0" prefWidth="606.0" text="error" textAlignment="CENTER" textFill="#ba2222c7" />
+            <HBox alignment="CENTER" prefHeight="65.0" prefWidth="578.0">
+               <children>
+                  <Button fx:id="btnSignup" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="25.0" prefWidth="70.0" text="Signup">
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="btnCancel" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="25.0" prefWidth="70.0" text="Cancel">
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <VBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </VBox.margin>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+            </HBox>
+         </children>
+      </VBox>
+      <Pane prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Pane layoutX="73.0" layoutY="-52.0" opacity="0.39" prefHeight="716.0" prefWidth="65.0" rotate="130.2" style="-fx-background-color: #101090;" />
+            <Pane layoutX="506.0" layoutY="-249.0" opacity="0.39" prefHeight="677.0" prefWidth="10.0" rotate="158.6" style="-fx-background-color: #105090;" />
+            <Pane layoutX="479.0" layoutY="-75.0" opacity="0.39" prefHeight="440.0" prefWidth="65.0" rotate="140.4" style="-fx-background-color: #101090;">
+               <rotationAxis>
+                  <Point3D z="10.0" />
+               </rotationAxis>
+            </Pane>
+            <Pane layoutX="498.0" layoutY="71.0" opacity="0.39" prefHeight="440.0" prefWidth="65.0" rotate="-142.1" style="-fx-background-color: #101090;" />
+            <Pane layoutX="516.0" layoutY="-239.0" opacity="0.39" prefHeight="677.0" prefWidth="10.0" rotate="26.6" style="-fx-background-color: #105090;" />
          </children>
       </Pane>
    </children>

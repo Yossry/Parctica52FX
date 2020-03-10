@@ -8,6 +8,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 
+import java.awt.event.ActionEvent;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.*;
@@ -77,21 +78,12 @@ public class Controller implements Initializable {
                     lbl_error.setText("");
                     System.out.println("Login correcte");
                     mostraDialog(Alert.AlertType.CONFIRMATION, "Login Correcte, benvingut " + user, null, null);
-
-                    Parent root = FXMLLoader.load(getClass().getResource("appInside.fxml"));
-                    primaryStage.setTitle("");
-                    primaryStage.setScene(new Scene(root, 400, 275));
-                    primaryStage.show();
-                    return true;
-
                 }
             }
 
         } catch (
                 SQLException e) {
             e.getMessage();
-        } catch (IOException e) {
-            e.printStackTrace();
         } finally {
             try {
                 resultSet.close();// Cerrar ResultSet
@@ -104,6 +96,7 @@ public class Controller implements Initializable {
         }
         return null;
     }
+
 
 
 
