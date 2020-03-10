@@ -43,7 +43,8 @@ public class Controller implements Initializable {
             Class.forName("org.postgresql.Driver");
             // Establecemos la conexion con la BD
             conexion = DriverManager.getConnection
-                    ("jdbc:postgresql://localhost/dbtest", "adminadmin", "adminadmin");
+               //     ("jdbc:postgresql://localhost/dbtest", "adminadmin", "adminadmin");
+                    ("jdbc:postgresql://localhost/testdb", "admin", "admin"); // AQUEST ES PER LA ESCOLA
         } catch (ClassNotFoundException e) {
             e.getMessage();
         } catch (SQLException e) {
@@ -78,12 +79,22 @@ public class Controller implements Initializable {
                     lbl_error.setText("");
                     System.out.println("Login correcte");
                     mostraDialog(Alert.AlertType.CONFIRMATION, "Login Correcte, benvingut " + user, null, null);
+
+                    FXMLLoader loader = new FXMLLoader( (getClass().getResource("signup.fxml")));
+                    Scene scene;
+
+                    scene=new Scene(loader.load(),800,600);
+                    Stage stage = new Stage();
+                    stage.setScene(scene);
+                    stage.show();
                 }
             }
 
         } catch (
                 SQLException e) {
             e.getMessage();
+        } catch (IOException e) {
+            e.printStackTrace();
         } finally {
             try {
                 resultSet.close();// Cerrar ResultSet
