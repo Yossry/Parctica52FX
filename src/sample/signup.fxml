@@ -61,7 +61,7 @@
                   </Pane>
                </children>
             </HBox>
-            <Label fx:id="lbl_error" alignment="CENTER" contentDisplay="CENTER" prefHeight="31.0" prefWidth="606.0" text="error" textAlignment="CENTER" textFill="#ba2222c7" />
+            <Label fx:id="lbl_error" alignment="CENTER" contentDisplay="CENTER" prefHeight="31.0" prefWidth="606.0" textAlignment="CENTER" textFill="#ba2222c7" />
             <HBox alignment="CENTER" prefHeight="65.0" prefWidth="578.0">
                <children>
                   <Button fx:id="btnSignup" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="25.0" prefWidth="70.0" text="Signup">

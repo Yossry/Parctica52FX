@@ -3,12 +3,10 @@ package sample;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 
-import java.awt.event.ActionEvent;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.*;
@@ -33,8 +31,7 @@ public class Controller implements Initializable {
 
     }
 
-    public Scene loginScene, mainWindowsScene;
-    public Stage primaryStage = null;
+
 
 //Crecio de la taula
 //    CREATE TABLE users (
@@ -84,23 +81,15 @@ public class Controller implements Initializable {
                 } else {
                     lbl_error.setText("");
                     System.out.println("Login correcte");
-                    mostraDialog(Alert.AlertType.CONFIRMATION, "Login Correcte, benvingut " + user, null, null);
+                    mostraDialog(Alert.AlertType.CONFIRMATION, "Login Correcte, benvingut " + user, "Login Correcte", null);
 
-                    FXMLLoader loader = new FXMLLoader( (getClass().getResource("appInside.fxml")));
-                    Scene scene;
-
-                    scene=new Scene(loader.load(),800,600);
-                    Stage stage = new Stage();
-                    stage.setScene(scene);
-                    stage.show();
+                    llençaPantalla("appInside.fxml");
                 }
             }
 
         } catch (
                 SQLException e) {
             e.getMessage();
-        } catch (IOException e) {
-            e.printStackTrace();
         } finally {
             try {
                 resultSet.close();// Cerrar ResultSet
@@ -114,7 +103,26 @@ public class Controller implements Initializable {
         return null;
     }
 
+    public void llençaPantalla(String nomPantalla)  {
+        FXMLLoader loader = new FXMLLoader( (getClass().getResource(nomPantalla)));
+        Scene scene;
 
+        try {
+            scene=new Scene(loader.load(),600,500);
+            Stage stage = new Stage();
+            stage.setScene(scene);
+            stage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public void sigUp(){
+        llençaPantalla("signup.fxml");
+
+    }
 
 
     public void mostraDialog(Alert.AlertType alertType, String info, String capcelera, String titul) {
