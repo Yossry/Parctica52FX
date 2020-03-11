@@ -36,6 +36,12 @@ public class Controller implements Initializable {
     public Scene loginScene, mainWindowsScene;
     public Stage primaryStage = null;
 
+//Crecio de la taula
+//    CREATE TABLE users (
+//            id SERIAL,first varchar,last varchar ,email varchar,
+//            username varchar,
+//            password varchar);
+//
     public static Connection databaseConneciton(String user, String password) {
         Connection conexion = null;
         try {
@@ -44,7 +50,7 @@ public class Controller implements Initializable {
             // Establecemos la conexion con la BD
             conexion = DriverManager.getConnection
                //     ("jdbc:postgresql://localhost/dbtest", "adminadmin", "adminadmin");
-                    ("jdbc:postgresql://localhost/testdb", "admin", "admin"); // AQUEST ES PER LA ESCOLA
+                    ("jdbc:postgresql://localhost/dbtest", "admin", "admin"); // AQUEST ES PER LA ESCOLA
         } catch (ClassNotFoundException e) {
             e.getMessage();
         } catch (SQLException e) {
@@ -80,7 +86,7 @@ public class Controller implements Initializable {
                     System.out.println("Login correcte");
                     mostraDialog(Alert.AlertType.CONFIRMATION, "Login Correcte, benvingut " + user, null, null);
 
-                    FXMLLoader loader = new FXMLLoader( (getClass().getResource("signup.fxml")));
+                    FXMLLoader loader = new FXMLLoader( (getClass().getResource("appInside.fxml")));
                     Scene scene;
 
                     scene=new Scene(loader.load(),800,600);
