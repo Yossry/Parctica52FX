@@ -46,8 +46,8 @@ public class Controller implements Initializable {
             Class.forName("org.postgresql.Driver");
             // Establecemos la conexion con la BD
             conexion = DriverManager.getConnection
-               //     ("jdbc:postgresql://localhost/dbtest", "adminadmin", "adminadmin");
-                    ("jdbc:postgresql://localhost/dbtest", "admin", "admin"); // AQUEST ES PER LA ESCOLA
+                    ("jdbc:postgresql://localhost/dbtest", "adminadmin", "adminadmin");
+               //     ("jdbc:postgresql://localhost/dbtest", "admin", "admin"); // AQUEST ES PER LA ESCOLA
         } catch (ClassNotFoundException e) {
             e.getMessage();
         } catch (SQLException e) {
