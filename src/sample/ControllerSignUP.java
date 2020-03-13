@@ -36,7 +36,7 @@ public class ControllerSignUP implements Initializable {
     @FXML
     Button btnSignup;
     @FXML
-    Button btnCancel;
+    Button btn_close;
     @FXML
     GridPane grid;
 
@@ -80,7 +80,13 @@ public class ControllerSignUP implements Initializable {
         return conexion;
     }
 
-
+    @FXML
+    private void closeButtonAction() {
+        // get a handle to the stage
+        Stage stage = (Stage) btn_close.getScene().getWindow();
+        // do what you have to do
+        stage.close();
+    }
     private void insertaUser() {
         String first = txtFirstName.getText();
         String last = txtLastName.getText();

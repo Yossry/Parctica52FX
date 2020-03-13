@@ -21,32 +21,6 @@
 .btn_css:hover {
 	-fx-background-color:#fb9e25;
 }
-.lbl_css{
-   -fx-text-fill:#ffffff
-}
-.btn_close_css {
-	-fx-box-shadow:inset 0px 1px 0px 0px #f29c93;
-	-fx-background:linear-gradient(to bottom, #fe1a00 5%, #ce0100 100%);
-	-fx-background-color:#fe1a00;
-	-fx-border-radius:42px;
-	-fx-display:inline-block;
-	-fx-cursor:pointer;
-	-fx-color:#ffffff;
-	-fx-font-family:Arial;
-	-fx-font-size:14px;
-	-fx-font-weight:bold;
-	-fx-padding:3px 6px;
-	-fx-text-decoration:none;
-}
-.btn_close_css:hover {
-	-fx-background:linear-gradient(to bottom, #ce0100 5%, #fe1a00 100%);
-	-fx-background-color:#ce0100;
-}
-.btn_close_css:active {
-	-fx-position:relative;
-	-fx-top:1px;
-}
-
 .btn_close_css2 {
 	-fx-box-shadow:inset 0px 0px 48px 20px #f29c93;
 	-fx-background-color:transparent;
@@ -67,5 +41,9 @@
 	-fx-position:relative;
 	-fx-top:1px;
 }
+.lbl_css{
+   -fx-text-fill:#ffffff
+}
+
 
 

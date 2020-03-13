@@ -3,9 +3,11 @@ package sample;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import java.io.IOException;
 import java.net.URL;
@@ -28,6 +30,8 @@ public class Controller implements Initializable {
     Label lbl_CrearCompte;
     @FXML
     Button btn_close;
+    @FXML
+    Hyperlink hyl_signin;
 
 
     @Override
@@ -36,8 +40,7 @@ public class Controller implements Initializable {
     }
 
 
-
-//Crecio de la taula
+    //Crecio de la taula
 //    CREATE TABLE users (
 //            id SERIAL,first varchar,last varchar ,email varchar,
 //            username varchar,
@@ -51,7 +54,7 @@ public class Controller implements Initializable {
             // Establecemos la conexion con la BD
             conexion = DriverManager.getConnection
                     ("jdbc:postgresql://localhost/dbtest", "adminadmin", "adminadmin");
-               //     ("jdbc:postgresql://localhost/dbtest", "admin", "admin"); // AQUEST ES PER LA ESCOLA
+            //     ("jdbc:postgresql://localhost/dbtest", "admin", "admin"); // AQUEST ES PER LA ESCOLA
         } catch (ClassNotFoundException e) {
             e.getMessage();
         } catch (SQLException e) {
@@ -61,6 +64,9 @@ public class Controller implements Initializable {
     }
 
     public Boolean logIn() {
+        String[] errorsString = new String[2];
+        errorsString[0] = "Tens que omplir tots els camps";
+        errorsString[1] = "User o password mal introduit";
         ResultSet resultSet = null;
         Statement sentencia = null;
         Connection conexion = null;
@@ -73,24 +79,20 @@ public class Controller implements Initializable {
             resultSet = sentencia.executeQuery("SELECT * FROM users where username = '" + user + "' and password = '" + password + "';");
             if ((txtUser.getText().isEmpty() || txtPassword.getText().isEmpty())) {
                 //mostraDialog(Alert.AlertType.WARNING, "falten camps per omplir", null, "TILUL");
-                lbl_error.setText("tens que omplir els camps");
-                System.err.println("tens que omplir els camps");
+                lbl_error.setText(errorsString[0]);
+                System.err.println(errorsString[0]);
                 return false;
 
             } else {
                 if (!resultSet.next()) {
-                    lbl_error.setText("usuari o password mal introduit");
-                    System.err.println("Password mal introduit");
+                    lbl_error.setText(errorsString[1]);
+                    System.err.println(errorsString[1]);
                     return false;
                 } else {
                     lbl_error.setText("");
                     System.out.println("Login correcte");
                     //mostraDialog(Alert.AlertType.CONFIRMATION, "Login Correcte, benvingut " + user, "Login Correcte", null);
-                    Thread one = new Thread();
-                    one.sleep(1000);
                     lbl_error.setText("USUARI / LOGIN CORRECTE");
-
-
                     llençaPantalla("appInside.fxml");
                 }
             }
@@ -98,8 +100,6 @@ public class Controller implements Initializable {
         } catch (
                 SQLException e) {
             e.getMessage();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
         } finally {
             try {
                 resultSet.close();// Cerrar ResultSet
@@ -113,14 +113,17 @@ public class Controller implements Initializable {
         return null;
     }
 
-    public void llençaPantalla(String nomPantalla)  {
-        FXMLLoader loader = new FXMLLoader( (getClass().getResource(nomPantalla)));
+    public void llençaPantalla(String nomPantalla) {
+
+        FXMLLoader loader = new FXMLLoader((getClass().getResource(nomPantalla)));
         Scene scene;
 
         try {
-            scene=new Scene(loader.load(), 300,380);
+            scene = new Scene(loader.load(), 300, 380);
             Stage stage = new Stage();
             stage.setScene(scene);
+            stage.setResizable(false);
+            stage.initStyle(StageStyle.TRANSPARENT);
             stage.show();
 
         } catch (IOException e) {
@@ -129,12 +132,13 @@ public class Controller implements Initializable {
 
     }
 
-    public void signUp(){
+    public void signUp() {
         llençaPantalla("signup.fxml");
 
     }
+
     @FXML
-    private void closeButtonAction(){
+    private void closeButtonAction() {
         // get a handle to the stage
         Stage stage = (Stage) btn_close.getScene().getWindow();
         // do what you have to do

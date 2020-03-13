@@ -13,11 +13,23 @@
             <Image url="@../resources/fondo_appinside.jpeg" />
          </image>
       </ImageView>
-      <VBox layoutY="47.0" prefHeight="380.0" prefWidth="300.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="-5.0" AnchorPane.topAnchor="57.0">
+      <VBox alignment="TOP_CENTER" layoutY="116.0" prefHeight="259.0" prefWidth="300.0" stylesheets="@../resources/stylesheet.css" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="-5.0" AnchorPane.topAnchor="116.0">
          <children>
-            <Label styleClass="label1" stylesheets="@../resources/stylesheet.css" text="Label" />
-            <TextField />
+            <Button mnemonicParsing="false" prefHeight="58.0" prefWidth="153.0" styleClass="btn_css" text="Button">
+               <VBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </VBox.margin>
+            </Button>
+            <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="153.0" styleClass="btn_css" text="Button">
+               <VBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </VBox.margin>
+            </Button>
          </children>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
       </VBox>
+      <Label layoutX="49.0" layoutY="21.0" prefHeight="15.0" prefWidth="106.0" styleClass="lbl_css" stylesheets="@../resources/stylesheet.css" text="USER NAME" />
    </children>
 </AnchorPane>
