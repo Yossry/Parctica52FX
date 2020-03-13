@@ -7,22 +7,22 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="380.0" maxWidth="300.0" minHeight="380.0" minWidth="300.0" prefHeight="380.0" prefWidth="300.0" stylesheets="@../resources/stylesheet.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+<AnchorPane fx:id="anchorPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="380.0" minWidth="300.0" prefHeight="380.0" prefWidth="300.0" stylesheets="@../resources/stylesheet.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
    <children>
-      <ImageView>
+      <ImageView fitHeight="385.0" fitWidth="300.0">
          <image>
             <Image url="@../resources/imagendefondo.jpeg" />
          </image>
       </ImageView>
       <VBox layoutX="28.0" layoutY="163.0" prefHeight="111.0" prefWidth="245.0" AnchorPane.bottomAnchor="106.0" AnchorPane.leftAnchor="28.0" AnchorPane.rightAnchor="27.0" AnchorPane.topAnchor="163.0">
          <children>
-            <Label text="Nom d'usuari" textFill="WHITE">
+            <Label styleClass="lbl_css" text="Nom d'usuari">
                <font>
                   <Font size="11.0" />
                </font>
             </Label>
             <TextField fx:id="txtUser" style="-fx-background-radius: 5;" />
-            <Label text="Password" textFill="WHITE">
+            <Label styleClass="lbl_css" text="Password">
                <font>
                   <Font size="11.0" />
                </font>
@@ -43,7 +43,7 @@
                         <Insets top="10.0" />
                      </VBox.margin>
                   </Button>
-                  <Label text="Ets un nou users?" textFill="WHITE">
+                  <Label styleClass="lbl_css" text="Ets un nou users?" textFill="WHITE">
                      <font>
                         <Font size="12.0" />
                      </font>
@@ -51,7 +51,7 @@
                         <Insets top="10.0" />
                      </VBox.margin>
                   </Label>
-                  <Label fx:id="lbl_CrearCompte" onMouseClicked="#signUp" text="Crear compte" textFill="WHITE" underline="true">
+                  <Label fx:id="lbl_CrearCompte" alignment="CENTER" onMouseClicked="#signUp" text="Crear compte" textFill="WHITE" underline="true">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -59,10 +59,14 @@
                         <Insets top="-2.0" />
                      </VBox.margin>
                   </Label>
+                  <Hyperlink text="Hyperlink" />
                </children>
             </VBox>
          </children>
       </VBox>
-      <Button fx:id="btnSignup" mnemonicParsing="false" text="Signup" />
+      <Button fx:id="btn_close" layoutX="272.0" layoutY="2.0" mnemonicParsing="false" onAction="#closeButtonAction" prefHeight="25.0" prefWidth="29.0" styleClass="btn_close_css2" text="X" />
    </children>
+   <rotationAxis>
+      <Point3D />
+   </rotationAxis>
 </AnchorPane>

@@ -26,6 +26,8 @@ public class Controller implements Initializable {
     Label lbl_error;
     @FXML
     Label lbl_CrearCompte;
+    @FXML
+    Button btn_close;
 
 
     @Override
@@ -83,7 +85,11 @@ public class Controller implements Initializable {
                 } else {
                     lbl_error.setText("");
                     System.out.println("Login correcte");
-                    mostraDialog(Alert.AlertType.CONFIRMATION, "Login Correcte, benvingut " + user, "Login Correcte", null);
+                    //mostraDialog(Alert.AlertType.CONFIRMATION, "Login Correcte, benvingut " + user, "Login Correcte", null);
+                    Thread one = new Thread();
+                    one.sleep(1000);
+                    lbl_error.setText("USUARI / LOGIN CORRECTE");
+
 
                     llençaPantalla("appInside.fxml");
                 }
@@ -92,6 +98,8 @@ public class Controller implements Initializable {
         } catch (
                 SQLException e) {
             e.getMessage();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         } finally {
             try {
                 resultSet.close();// Cerrar ResultSet
@@ -110,7 +118,7 @@ public class Controller implements Initializable {
         Scene scene;
 
         try {
-            scene=new Scene(loader.load(),300,380);
+            scene=new Scene(loader.load(), 300,380);
             Stage stage = new Stage();
             stage.setScene(scene);
             stage.show();
@@ -124,6 +132,13 @@ public class Controller implements Initializable {
     public void signUp(){
         llençaPantalla("signup.fxml");
 
+    }
+    @FXML
+    private void closeButtonAction(){
+        // get a handle to the stage
+        Stage stage = (Stage) btn_close.getScene().getWindow();
+        // do what you have to do
+        stage.close();
     }
 
 

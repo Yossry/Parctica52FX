@@ -1,18 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.geometry.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="300.0" minWidth="500.0" prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="380.0" minWidth="300.0" prefHeight="380.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Pane prefHeight="467.0" prefWidth="659.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <ImageView fitHeight="380.0" fitWidth="300.0">
+         <image>
+            <Image url="@../resources/fondo_appinside.jpeg" />
+         </image>
+      </ImageView>
+      <VBox layoutY="47.0" prefHeight="380.0" prefWidth="300.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="-5.0" AnchorPane.topAnchor="57.0">
          <children>
-            <Pane layoutX="-95.0" layoutY="368.0" opacity="0.26" prefHeight="50.0" prefWidth="500.0" rotate="-146.3" style="-fx-background-color: blue;" />
-            <Pane layoutX="-233.0" layoutY="117.0" opacity="0.36" prefHeight="50.0" prefWidth="657.0" rotate="118.1" style="-fx-background-color: blue;" />
-            <Pane layoutX="85.0" layoutY="63.0" opacity="0.76" prefHeight="50.0" prefWidth="692.0" rotate="-145.3" style="-fx-background-color: blue;" />
-            <Pane layoutX="47.0" layoutY="192.0" opacity="0.48" prefHeight="50.0" prefWidth="800.0" rotate="135.0" style="-fx-background-color: blue;" />
+            <Label styleClass="label1" stylesheets="@../resources/stylesheet.css" text="Label" />
+            <TextField />
          </children>
-      </Pane>
+      </VBox>
    </children>
 </AnchorPane>
