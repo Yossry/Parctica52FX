@@ -42,8 +42,13 @@
 	-fx-top:1px;
 }
 .lbl_css{
-   -fx-text-fill:#ffffff
+   -fx-text-fill:#ffffff;
 }
+.lbl_css_err{
+   -fx-text-fill:#ff0000;
+}
+
+
 
 
 

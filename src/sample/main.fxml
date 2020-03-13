@@ -16,7 +16,7 @@
       </ImageView>
       <VBox layoutX="28.0" layoutY="163.0" prefHeight="111.0" prefWidth="245.0" AnchorPane.bottomAnchor="106.0" AnchorPane.leftAnchor="28.0" AnchorPane.rightAnchor="27.0" AnchorPane.topAnchor="163.0">
          <children>
-            <Label styleClass="lbl_css" text="Nom d'usuari">
+            <Label styleClass="lbl_css" stylesheets="@../resources/stylesheet.css" text="Nom d'usuari">
                <font>
                   <Font size="11.0" />
                </font>
@@ -28,7 +28,7 @@
                </font>
             </Label>
             <PasswordField fx:id="txtPassword" style="-fx-background-radius: 5;" />
-            <Label fx:id="lbl_error" alignment="TOP_CENTER" contentDisplay="CENTER" prefHeight="15.0" prefWidth="600.0" textFill="RED">
+            <Label fx:id="lbl_error" alignment="TOP_CENTER" contentDisplay="CENTER" prefHeight="15.0" prefWidth="600.0" styleClass="lbl_css_err" stylesheets="@../resources/stylesheet.css" textFill="WHITE">
                <font>
                   <Font name="Padauk" size="15.0" />
                </font>
@@ -38,7 +38,7 @@
             </Label>
             <VBox alignment="CENTER" prefHeight="92.0" prefWidth="245.0">
                <children>
-                  <Button fx:id="btnSignin" alignment="CENTER" mnemonicParsing="false" onAction="#logIn" styleClass="btn_css" text="Entrar">
+                  <Button fx:id="btnSignin" alignment="CENTER" mnemonicParsing="false" onAction="#logIn" prefHeight="15.0" prefWidth="75.0" styleClass="btn_css" text="Entrar">
                      <VBox.margin>
                         <Insets top="10.0" />
                      </VBox.margin>
@@ -51,10 +51,6 @@
                         <Insets top="10.0" />
                      </VBox.margin>
                   </Label>
-                  <Hyperlink fx:id="hyl_signin" onAction="#signUp" text="Crear user" textFill="WHITE">
-                     <font>
-                        <Font size="12.0" />
-                     </font></Hyperlink>
                </children>
             </VBox>
          </children>

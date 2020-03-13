@@ -16,22 +16,11 @@ import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
 
-    @FXML
-    Button btnSignin;
-    @FXML
-    Button btnSignup;
-    @FXML
-    TextField txtUser;
-    @FXML
-    PasswordField txtPassword;
-    @FXML
-    Label lbl_error;
-    @FXML
-    Label lbl_CrearCompte;
-    @FXML
-    Button btn_close;
-    @FXML
-    Hyperlink hyl_signin;
+    @FXML Button btnSignin;
+    @FXML TextField txtUser;
+    @FXML PasswordField txtPassword;
+    @FXML Label lbl_error;
+    @FXML Button btn_close;
 
 
     @Override
@@ -41,11 +30,12 @@ public class Controller implements Initializable {
 
 
     //Crecio de la taula
-//    CREATE TABLE users (
-//            id SERIAL,first varchar,last varchar ,email varchar,
-//            username varchar,
-//            password varchar);
-//
+//    CREATE TABLE users (id SERIAL,first varchar,last varchar ,email varchar,username varchar,password varchar,level int,connected boolean);
+//    insert into users(first,last,email,username,password,level,connected) values ('Josep M','Olmos','olmosmoog@gmail.com','olmos','olmos',10,true);
+//    insert into users(first,last,email,username,password,level,connected) values ('William','Areas','will@gmail.com','william','bbmas',9,false);
+//    insert into users(first,last,email,username,password,level,connected) values ('Roser ','Olmos','roser@gmail.com','roser','olmos',5,true);
+
+
     public static Connection databaseConneciton(String user, String password) {
         Connection conexion = null;
         try {
