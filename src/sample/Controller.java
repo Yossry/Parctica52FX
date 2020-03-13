@@ -59,7 +59,7 @@ public class Controller implements Initializable {
         errorsString[1] = "User o password mal introduit";
         ResultSet resultSet = null;
         Statement sentencia = null;
-        Connection conexion = null;
+        Connection conexion;
         String user = txtUser.getText().toString();
         String password = txtPassword.getText().toString();
         conexion = databaseConneciton(user, password);
@@ -83,6 +83,9 @@ public class Controller implements Initializable {
                     System.out.println("Login correcte");
                     //mostraDialog(Alert.AlertType.CONFIRMATION, "Login Correcte, benvingut " + user, "Login Correcte", null);
                     lbl_error.setText("USUARI / LOGIN CORRECTE");
+
+
+
                     llençaPantalla("appInside.fxml");
                 }
             }
@@ -103,12 +106,17 @@ public class Controller implements Initializable {
         return null;
     }
 
+
+
     public void llençaPantalla(String nomPantalla) {
 
         FXMLLoader loader = new FXMLLoader((getClass().getResource(nomPantalla)));
         Scene scene;
+//        AppInsideControl appInsideControl = loader.getController();
+
 
         try {
+  //          appInsideControl.enviaDada(txtUser.getText());
             scene = new Scene(loader.load(), 300, 380);
             Stage stage = new Stage();
             stage.setScene(scene);
@@ -142,6 +150,7 @@ public class Controller implements Initializable {
         alert.setHeaderText(capcelera);
         alert.showAndWait();
     }
+
 
 
 }
