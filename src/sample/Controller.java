@@ -24,6 +24,8 @@ public class Controller implements Initializable {
     PasswordField txtPassword;
     @FXML
     Label lbl_error;
+    @FXML
+    Label lbl_CrearCompte;
 
 
     @Override
@@ -108,7 +110,7 @@ public class Controller implements Initializable {
         Scene scene;
 
         try {
-            scene=new Scene(loader.load(),600,500);
+            scene=new Scene(loader.load(),300,380);
             Stage stage = new Stage();
             stage.setScene(scene);
             stage.show();
@@ -119,7 +121,7 @@ public class Controller implements Initializable {
 
     }
 
-    public void sigUp(){
+    public void signUp(){
         llençaPantalla("signup.fxml");
 
     }
