@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
@@ -16,24 +17,22 @@ import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
 
-    @FXML Button btnSignin;
-    @FXML TextField txtUser;
-    @FXML PasswordField txtPassword;
-    @FXML Label lbl_error;
-    @FXML Button btn_close;
+    @FXML
+    Button btnSignin;
+    @FXML
+    TextField txtUser;
+    @FXML
+    PasswordField txtPassword;
+    @FXML
+    Label lbl_error;
+    @FXML
+    Button btn_close;
 
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
     }
-
-
-    //Crecio de la taula
-//    CREATE TABLE users (id SERIAL,first varchar,last varchar ,email varchar,username varchar,password varchar,level int,connected boolean);
-//    insert into users(first,last,email,username,password,level,connected) values ('Josep M','Olmos','olmosmoog@gmail.com','olmos','olmos',10,true);
-//    insert into users(first,last,email,username,password,level,connected) values ('William','Areas','will@gmail.com','william','bbmas',9,false);
-//    insert into users(first,last,email,username,password,level,connected) values ('Roser ','Olmos','roser@gmail.com','roser','olmos',5,true);
 
 
     public static Connection databaseConneciton(String user, String password) {
@@ -83,16 +82,16 @@ public class Controller implements Initializable {
                     System.out.println("Login correcte");
                     //mostraDialog(Alert.AlertType.CONFIRMATION, "Login Correcte, benvingut " + user, "Login Correcte", null);
                     lbl_error.setText("USUARI / LOGIN CORRECTE");
+                    showNewScreen("appInside.fxml");
 
-
-
-                    llençaPantalla("appInside.fxml");
                 }
             }
 
         } catch (
                 SQLException e) {
             e.getMessage();
+        } catch (IOException e) {
+            e.printStackTrace();
         } finally {
             try {
                 resultSet.close();// Cerrar ResultSet
@@ -106,34 +105,18 @@ public class Controller implements Initializable {
         return null;
     }
 
-
-
-    public void llençaPantalla(String nomPantalla) {
-
-        FXMLLoader loader = new FXMLLoader((getClass().getResource(nomPantalla)));
-        Scene scene;
-//        AppInsideControl appInsideControl = loader.getController();
-
-
-        try {
-  //          appInsideControl.enviaDada(txtUser.getText());
-            scene = new Scene(loader.load(), 300, 380);
-            Stage stage = new Stage();
-            stage.setScene(scene);
-            stage.setResizable(false);
-            stage.initStyle(StageStyle.TRANSPARENT);
-            stage.show();
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
+    public void showNewScreen(String fxml) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(fxml));
+        Parent root = (Parent) loader.load();
+        AppInsideControl appInsideControl = loader.getController();
+        appInsideControl.enviaDada(txtUser.getText(), txtPassword.getText());
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+        stage.setResizable(false);
+        stage.initStyle(StageStyle.TRANSPARENT);
+        stage.show();
     }
 
-    public void signUp() {
-        llençaPantalla("signup.fxml");
-
-    }
 
     @FXML
     private void closeButtonAction() {
@@ -142,15 +125,6 @@ public class Controller implements Initializable {
         // do what you have to do
         stage.close();
     }
-
-
-    public void mostraDialog(Alert.AlertType alertType, String info, String capcelera, String titul) {
-        Alert alert = new Alert((alertType));
-        alert.setContentText(info);
-        alert.setHeaderText(capcelera);
-        alert.showAndWait();
-    }
-
 
 
 }

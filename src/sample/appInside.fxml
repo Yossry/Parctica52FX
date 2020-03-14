@@ -7,36 +7,36 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="380.0" minWidth="300.0" prefHeight="380.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="380.0" minWidth="300.0" prefHeight="380.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.AppInsideControl">
    <children>
       <ImageView fitHeight="380.0" fitWidth="300.0">
          <image>
             <Image url="@../resources/fondo_appinside.jpeg" />
          </image>
       </ImageView>
-      <VBox layoutY="98.0" prefHeight="277.0" prefWidth="190.0" stylesheets="@../resources/stylesheet.css" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="55.0" AnchorPane.rightAnchor="55.0" AnchorPane.topAnchor="98.0">
+      <VBox layoutY="98.0" prefHeight="277.0" prefWidth="190.0" stylesheets="@../resources/stylesheet.css" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="98.0">
          <children>
             <Label styleClass="lbl_css" stylesheets="@../resources/stylesheet.css" text="Nom User">
                <font>
                   <Font size="11.0" />
                </font>
             </Label>
-            <TextField fx:id="txt_userCerca">
+            <TextField fx:id="txt_userCerca" prefHeight="25.0" prefWidth="205.0">
                <VBox.margin>
-                  <Insets bottom="5.0" left="5.0" right="5.0" />
+                  <Insets />
                </VBox.margin>
             </TextField>
             <VBox alignment="CENTER" prefHeight="30.0" prefWidth="190.0">
                <children>
                   <Label alignment="CENTER" prefHeight="15.0" prefWidth="162.0" styleClass="lbl_css_err" stylesheets="@../resources/stylesheet.css" textFill="WHITE" />
-                  <Button fx:id="btn_CercaUser" mnemonicParsing="false" prefHeight="35.0" prefWidth="123.0" styleClass="btn_css" text="Cerca user">
+                  <Button fx:id="btn_CercaUser" mnemonicParsing="false" onAction="#cercaUser" prefHeight="35.0" prefWidth="123.0" styleClass="btn_css" text="Cerca user">
                      <VBox.margin>
                         <Insets top="20.0" />
                      </VBox.margin>
                   </Button>
-                  <Button fx:id="btn_addUser" mnemonicParsing="false" styleClass="btn_css" text="Afegeix user">
+                  <Button fx:id="btn_addUser" layoutX="39.0" layoutY="45.0" mnemonicParsing="false" onAction="#addUserScreen" prefHeight="35.0" prefWidth="150.0" styleClass="btn_css" text="Afegeix User">
                      <VBox.margin>
-                        <Insets bottom="5.0" left="5.0" right="5.0" top="50.0" />
+                        <Insets top="50.0" />
                      </VBox.margin>
                   </Button>
                </children>
@@ -49,6 +49,7 @@
             <Insets />
          </opaqueInsets>
       </VBox>
-      <Label fx:id="lbl_userName" layoutX="49.0" layoutY="21.0" prefHeight="15.0" prefWidth="106.0" styleClass="lbl_css" stylesheets="@../resources/stylesheet.css" text="USER NAME" />
+      <Label fx:id="lbl_userName" layoutX="49.0" layoutY="21.0" prefHeight="15.0" prefWidth="106.0" styleClass="lbl_css" stylesheets="@../resources/stylesheet.css" />
+      <Button fx:id="btn_close" layoutX="278.0" layoutY="-8.0" mnemonicParsing="false" onAction="#closeButtonAction" styleClass="btn_close_css2" stylesheets="@../resources/stylesheet.css" text="x" textFill="WHITE" />
    </children>
 </AnchorPane>

@@ -47,6 +47,7 @@ public class ControllerSignUP implements Initializable {
     }
 
 
+
     public void signUP() {
         for (Node node : this.grid.getChildren()) {
             if (node instanceof TextField || node instanceof PasswordField) {
@@ -133,4 +134,5 @@ public class ControllerSignUP implements Initializable {
         }
 
     }
+
 }
