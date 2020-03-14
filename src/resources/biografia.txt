@@ -3,4 +3,13 @@ per pasar info de un lloc a l'altre
 https://www.youtube.com/watch?v=Wc1a2KshJ4w
 https://www.youtube.com/watch?v=SGZUQvuqL5Q
 
+un programa per administrar usuaris y saber si estan conectats
 
+apareix la primera pantalla et demana login i password
+    ho comprova a una base de dades de postgres (el passwords estan sense encriptar)
+
+si el user/password existeixz a la base de dades de postgres et deixa entrar
+    apareix una pantalla on ens deixa busacar si un usuari esta conectat o desconectat
+    todo quan un usuari es conecta aquest passa a tindre en la base de dades el camp conneted a true.
+
+    posem el nom del usuaria

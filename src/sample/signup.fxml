@@ -13,7 +13,7 @@
 
 <AnchorPane maxHeight="380.0" maxWidth="300.0" prefHeight="380.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ControllerSignUP">
    <children>
-      <ImageView fitHeight="380.0" fitWidth="300.0">
+      <ImageView fitHeight="380.0" fitWidth="312.0">
          <image>
             <Image url="@../resources/imagendefon1.jpeg" />
          </image>

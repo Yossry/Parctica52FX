@@ -16,7 +16,8 @@ import java.sql.*;
 import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
-
+final static String userSQL = "adminadmin";
+final static String passSQL = "adminadmin";
     @FXML
     Button btnSignin;
     @FXML
@@ -42,7 +43,7 @@ public class Controller implements Initializable {
             Class.forName("org.postgresql.Driver");
             // Establecemos la conexion con la BD
             conexion = DriverManager.getConnection
-                    ("jdbc:postgresql://localhost/dbtest", "adminadmin", "adminadmin");
+                    ("jdbc:postgresql://localhost/dbtest", userSQL, passSQL);
             //     ("jdbc:postgresql://localhost/dbtest", "admin", "admin"); // AQUEST ES PER LA ESCOLA
         } catch (ClassNotFoundException e) {
             e.getMessage();
