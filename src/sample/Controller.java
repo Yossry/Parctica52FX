@@ -15,7 +15,7 @@ import java.net.URL;
 import java.sql.*;
 import java.util.ResourceBundle;
 
-public class Controller implements Initializable {
+public class Controller extends Thread implements Initializable {
 final static String userSQL = "adminadmin";
 final static String passSQL = "adminadmin";
     @FXML
@@ -83,7 +83,8 @@ final static String passSQL = "adminadmin";
                     System.out.println("Login correcte");
                     //mostraDialog(Alert.AlertType.CONFIRMATION, "Login Correcte, benvingut " + user, "Login Correcte", null);
                     lbl_error.setText("USUARI / LOGIN CORRECTE");
-                    showNewScreen("appInside.fxml");
+                   // showNewScreen("appInside.fxml");
+                    showNewScreen("chat.fxml");
 
                 }
             }
@@ -109,8 +110,8 @@ final static String passSQL = "adminadmin";
     public void showNewScreen(String fxml) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource(fxml));
         Parent root = (Parent) loader.load();
-        AppInsideControl appInsideControl = loader.getController();
-        appInsideControl.enviaDada(txtUser.getText(), txtPassword.getText());
+        ChatControl chatControl = loader.getController();
+        chatControl.enviaDada(txtUser.getText());
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
         stage.setResizable(false);

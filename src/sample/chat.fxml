@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="706.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ChatControl">
+   <children>
+      <ImageView fitHeight="728.0" fitWidth="600.0" layoutY="-7.0">
+         <image>
+            <Image url="@../resources/imagendefon1.jpeg" />
+         </image>
+      </ImageView>
+      <TextArea fx:id="txtAreaChat" focusTraversable="false" layoutX="22.0" layoutY="76.0" prefHeight="566.0" prefWidth="418.0" style="-fx-background-radius: 20;" AnchorPane.bottomAnchor="79.0" AnchorPane.leftAnchor="22.0" AnchorPane.rightAnchor="160.0" AnchorPane.topAnchor="76.0">
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
+         <font>
+            <Font size="11.0" />
+         </font>
+      </TextArea>
+      <TextField fx:id="txt_textToSend" layoutX="22.0" layoutY="653.0" prefHeight="26.0" prefWidth="418.0" style="-fx-background-radius: 5;" />
+      <Button fx:id="enviar" layoutX="452.0" layoutY="648.0" mnemonicParsing="false" onAction="#enviarMissatge" prefHeight="36.0" prefWidth="126.0" styleClass="btn_css" stylesheets="@../resources/stylesheet.css" text="Enviar" />
+      <ListView fx:id="llistaNicks" focusTraversable="false" layoutX="452.0" layoutY="76.0" prefHeight="566.0" prefWidth="126.0" style="-fx-background-radius: 20;">
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
+      </ListView>
+   </children>
+</AnchorPane>

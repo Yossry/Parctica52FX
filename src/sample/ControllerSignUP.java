@@ -33,9 +33,7 @@ public class ControllerSignUP implements Initializable {
     TextField txtEmail;
     @FXML
     Label lbl_error;
-    @FXML
-    Button btnSignup;
-    @FXML
+   @FXML
     Button btn_close;
     @FXML
     GridPane grid;
