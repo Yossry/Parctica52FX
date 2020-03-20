@@ -13,3 +13,13 @@
 --update users set nick = 'WillDeluxe' where username='william';
 --update users set nick = 'Blancaneus' where username='roser';
 --update users set nick = 'ABCNDEF' where username='a';
+
+dbtest=# select * from users;
+ id |   nom   | cognom |        email        | username | password | level | connected |    nick
+----+---------+--------+---------------------+----------+----------+-------+-----------+------------
+  1 | Josep M | Olmos  | olmosmoog@gmail.com | olmos    | olmos    |    10 | t         | Allmix
+  2 | William | Areas  | will@gmail.com      | william  | bbmas    |     9 | f         | WillDeluxe
+  3 | Roser   | Olmos  | roser@gmail.com     | roser    | olmos    |     5 | t         | Blancaneus
+  4 | a       | Olmos  | roser@gmail.com     | a        | a        |     5 | t         | ABCNDEF
+(4 filas)
+

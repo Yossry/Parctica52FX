@@ -55,11 +55,9 @@ public class Controller implements Initializable {
         }
         return conexion;
     }
-
     public Boolean logIn() {
         String[] errorsString = new String[2];
-        errorsString[0] = "Tens que omplir tots els camps";
-        errorsString[1] = "User o password mal introduit";
+        errorsString[0] = "Tens que omplir tots els camps";errorsString[1] = "User o password mal introduit"; //llistat de errors
         ResultSet resultSet = null;
         Statement sentencia = null;
         Connection conexion;
