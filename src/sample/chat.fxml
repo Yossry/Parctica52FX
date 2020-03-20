@@ -14,20 +14,46 @@
             <Image url="@../resources/imagendefon1.jpeg" />
          </image>
       </ImageView>
-      <TextArea fx:id="txtAreaChat" focusTraversable="false" layoutX="22.0" layoutY="76.0" prefHeight="566.0" prefWidth="418.0" style="-fx-background-radius: 20;" AnchorPane.bottomAnchor="79.0" AnchorPane.leftAnchor="22.0" AnchorPane.rightAnchor="160.0" AnchorPane.topAnchor="76.0">
-         <padding>
-            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-         </padding>
-         <font>
-            <Font size="11.0" />
-         </font>
-      </TextArea>
-      <TextField fx:id="txt_textToSend" layoutX="22.0" layoutY="653.0" prefHeight="26.0" prefWidth="418.0" style="-fx-background-radius: 5;" />
-      <Button fx:id="enviar" layoutX="452.0" layoutY="648.0" mnemonicParsing="false" onAction="#enviarMissatge" prefHeight="36.0" prefWidth="126.0" styleClass="btn_css" stylesheets="@../resources/stylesheet.css" text="Enviar" />
-      <ListView fx:id="llistaNicks" focusTraversable="false" layoutX="452.0" layoutY="76.0" prefHeight="566.0" prefWidth="126.0" style="-fx-background-radius: 20;">
-         <padding>
-            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-         </padding>
-      </ListView>
+      <VBox layoutY="32.0" prefHeight="689.0" prefWidth="600.0">
+         <children>
+            <Pane prefHeight="104.0" prefWidth="600.0" />
+            <HBox alignment="CENTER" prefHeight="629.0" prefWidth="600.0">
+               <children>
+                  <TextArea fx:id="txtAreaChat" focusTraversable="false" prefHeight="262.0" prefWidth="418.0" style="-fx-background-radius: 20;">
+                     <font>
+                        <Font size="11.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </HBox.margin>
+                  </TextArea>
+                  <ListView fx:id="llistaNicks" focusTraversable="false" prefHeight="566.0" prefWidth="126.0" style="-fx-background-radius: 20;">
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </HBox.margin>
+                  </ListView>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="42.0" prefWidth="600.0">
+               <children>
+                  <TextField fx:id="txt_textToSend" onAction="#enviarText" prefHeight="35.0" prefWidth="408.0" style="-fx-background-radius: 10;">
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </HBox.margin></TextField>
+                  <Button fx:id="enviar" mnemonicParsing="false" onAction="#enviarText" prefHeight="36.0" prefWidth="126.0" styleClass="btn_css" stylesheets="@../resources/stylesheet.css" text="Enviar">
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </HBox.margin></Button>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </VBox.margin>
+            </HBox>
+            <Pane prefHeight="60.0" prefWidth="600.0" />
+         </children>
+      </VBox>
    </children>
 </AnchorPane>

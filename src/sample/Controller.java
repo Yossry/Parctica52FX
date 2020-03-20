@@ -3,10 +3,12 @@ package sample;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -15,9 +17,9 @@ import java.net.URL;
 import java.sql.*;
 import java.util.ResourceBundle;
 
-public class Controller extends Thread implements Initializable {
-final static String userSQL = "adminadmin";
-final static String passSQL = "adminadmin";
+public class Controller implements Initializable {
+    final static String userSQL = "adminadmin";
+    final static String passSQL = "adminadmin";
     @FXML
     Button btnSignin;
     @FXML
@@ -29,6 +31,7 @@ final static String passSQL = "adminadmin";
     @FXML
     Button btn_close;
 
+    ChatControl chatControl;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -83,7 +86,7 @@ final static String passSQL = "adminadmin";
                     System.out.println("Login correcte");
                     //mostraDialog(Alert.AlertType.CONFIRMATION, "Login Correcte, benvingut " + user, "Login Correcte", null);
                     lbl_error.setText("USUARI / LOGIN CORRECTE");
-                   // showNewScreen("appInside.fxml");
+                    // showNewScreen("appInside.fxml");
                     showNewScreen("chat.fxml");
 
                 }
@@ -110,13 +113,16 @@ final static String passSQL = "adminadmin";
     public void showNewScreen(String fxml) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource(fxml));
         Parent root = (Parent) loader.load();
-        ChatControl chatControl = loader.getController();
-        chatControl.enviaDada(txtUser.getText());
+
+
+
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
-        stage.setResizable(false);
+        //stage.setResizable(false);
         stage.initStyle(StageStyle.TRANSPARENT);
         stage.show();
+        chatControl = loader.getController();
+        chatControl.setNamUserRebutDeController(txtUser.getText());
     }
 
 
