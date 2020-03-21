@@ -9,10 +9,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.net.URL;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
@@ -95,10 +92,8 @@ public class ChatControl implements Initializable {
         String dataFormateada = localDateTime.format(FORMATTER);
 
 
-
-
         String user = cercaNickDelUsuari(getNamUserRebutDeController());
-        txtAreaChat.appendText( dataFormateada + " " + user+ ": " + txt_textToSend.getText() + "\n");
+        txtAreaChat.appendText(dataFormateada + " " + user + ": " + txt_textToSend.getText() + "\n");
 
         // teexa el lavel text per enviar text
 
@@ -108,19 +103,30 @@ public class ChatControl implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         //lo primero que hace es buscar usuarios conectados
-        //todo obserbable
+        //todo obserbable i  poner en tru el usuario para que salga como conectado
 
 
-        buscaUsersConectats();
 
+        userUpdateStateConection(true);
 
+    }
+
+    public void userUpdateStateConection(boolean status) {
+//todo
+        //        try {
+//            String SQLupdate = "update users set connected = '" + status + "' where username='" + getNamUserRebutDeController() + "';";
+//            PreparedStatement insert1 = connection.prepareStatement(SQLupdate);
+//            int update = insert1.executeUpdate();
+//            connection.commit();
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        }
     }
 
     @FXML
     public void closeButtonAction() {
-        // get a handle to the stage
+        userUpdateStateConection(false);
         Stage stage = (Stage) btn_close.getScene().getWindow();
-        // do what you have to do
         stage.close();
     }
 }

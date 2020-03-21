@@ -55,6 +55,6 @@
             <Pane prefHeight="60.0" prefWidth="600.0" />
          </children>
       </VBox>
-      <Button fx:id="btn_close" layoutX="571.0" layoutY="2.0" mnemonicParsing="false" onAction="#closeButtonAction" prefHeight="21.0" prefWidth="30.0" styleClass="btn_close_css2" text="x" textFill="WHITE" />
+      <Button fx:id="btn_close" layoutX="571.0" layoutY="2.0" mnemonicParsing="false" onAction="#closeButtonAction" prefHeight="18.0" prefWidth="30.0" styleClass="btn_close_css2" stylesheets="@../resources/stylesheet.css" text="x" textFill="WHITE" />
    </children>
 </AnchorPane>

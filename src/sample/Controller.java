@@ -42,22 +42,14 @@ public class Controller implements Initializable {
     public static Connection databaseConneciton(String user, String password) {
         Connection conexion = null;
         try {
-            //Cargar el driver
-            Class.forName("org.postgresql.Driver");
-            // Establecemos la conexion con la BD
-            conexion = DriverManager.getConnection
-                    ("jdbc:postgresql://localhost/dbtest", userSQL, passSQL);
-            //     ("jdbc:postgresql://localhost/dbtest", "admin", "admin"); // AQUEST ES PER LA ESCOLA
-        } catch (ClassNotFoundException e) {
-            e.getMessage();
-        } catch (SQLException e) {
-            e.getMessage();
-        }
+            Class.forName("org.postgresql.Driver");            //Cargar el driver
+            conexion = DriverManager.getConnection            // Establecemos la conexion con la BD
+                    ("jdbc:postgresql://localhost/dbtest", userSQL, passSQL);//     ("jdbc:postgresql://localhost/dbtest", "admin", "admin"); // AQUEST ES PER LA ESCOLA
+        } catch (ClassNotFoundException e) {e.getMessage();} catch (SQLException e) {e.getMessage();}
         return conexion;
     }
     public Boolean logIn() {
-        String[] errorsString = new String[2];
-        errorsString[0] = "Tens que omplir tots els camps";errorsString[1] = "User o password mal introduit"; //llistat de errors
+        String[] errorsString = new String[]{"Tens que omplir tots els camps","User o password mal introduit"}; //llistat de errors
         ResultSet resultSet = null;
         Statement sentencia = null;
         Connection conexion;
@@ -73,7 +65,6 @@ public class Controller implements Initializable {
                 lbl_error.setText(errorsString[0]);
                 System.err.println(errorsString[0]);
                 return false;
-
             } else {
                 if (!resultSet.next()) {
                     lbl_error.setText(errorsString[1]);
@@ -111,14 +102,12 @@ public class Controller implements Initializable {
     public void showNewScreen(String fxml) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource(fxml));
         Parent root = (Parent) loader.load();
-
-
-
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
-        //stage.setResizable(false);
+        stage.setResizable(false);
         stage.initStyle(StageStyle.TRANSPARENT);
         stage.show();
+
         chatControl = loader.getController();
         chatControl.setNamUserRebutDeController(txtUser.getText());
     }
