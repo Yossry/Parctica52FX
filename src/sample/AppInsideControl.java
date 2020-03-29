@@ -38,14 +38,17 @@ public class AppInsideControl implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
 
     }
+//
+//    public void enviaDada(String user, String pass) {
+//
+//        lbl_userName.setText(user);
+//        this.user = user;
+//        this.pass = pass;
+//    }
 
-    public void enviaDada(String user, String pass) {
-
-        lbl_userName.setText(user);
-        this.user = user;
-        this.pass = pass;
-    }
-
+    /**
+     * s'utilizaria per buscar un usuari
+     */
     public void cercaUser() {
         ResultSet resultSet = null;
         Statement sentencia = null;
@@ -64,6 +67,14 @@ public class AppInsideControl implements Initializable {
         }
     }
 
+    /**
+     * Dispara finestres de alerta
+     * @param alertType tipus de missatge
+     * @param info informacio del missatge
+     * @param capcelera la capcelera del missatge
+     * @param titul el titul de la finestre
+     */
+
     public void mostraDialog(Alert.AlertType alertType, String info, String capcelera, String titul) {
         Alert alert = new Alert((alertType));
         alert.setContentText(info);
@@ -71,7 +82,9 @@ public class AppInsideControl implements Initializable {
         alert.showAndWait();
     }
 
-
+    /**
+     * s'utiliza per obrir la finestra que ens porta al formolari per donar d'alta un usuari
+     */
     public void addUserScreen() {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("signup.fxml"));
         Parent root = null;
@@ -88,6 +101,10 @@ public class AppInsideControl implements Initializable {
 
     }
 
+
+    /**
+     * s'utiliza per quan apretes al boto de tancar "x" , tanca el stage
+     */
     @FXML
     public void closeButtonAction() {
         // get a handle to the stage

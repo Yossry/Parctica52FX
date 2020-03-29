@@ -19,6 +19,7 @@ import java.util.ResourceBundle;
 
 
 public class ControllerSignUP implements Initializable {
+
     @FXML
     TextField txtFirstName;
     @FXML
@@ -45,7 +46,7 @@ public class ControllerSignUP implements Initializable {
     }
 
 
-
+    //todo metodo para dar de alta un usuario
     public void signUP() {
         for (Node node : this.grid.getChildren()) {
             if (node instanceof TextField || node instanceof PasswordField) {
@@ -62,6 +63,12 @@ public class ControllerSignUP implements Initializable {
 
     }
 
+    /**
+     * Lo utilizamos para conectarse a la base de datos de postgres
+     * @param user nom del usuari
+     * @param password password del usuari
+     * @return null;
+     */
     public static Connection databaseConneciton(String user, String password) {
         Connection conexion = null;
         try {
@@ -80,12 +87,19 @@ public class ControllerSignUP implements Initializable {
     }
 
     @FXML
+    /**
+     * S'utiliza per tancar la finestre
+     */
     private void closeButtonAction() {
         // get a handle to the stage
         Stage stage = (Stage) btn_close.getScene().getWindow();
         // do what you have to do
         stage.close();
     }
+
+    /**
+     * s'utiliza per insertar un usuari la base de dades
+     */
     private void insertaUser() {
         String first = txtFirstName.getText();
         String last = txtLastName.getText();
