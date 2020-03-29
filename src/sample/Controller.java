@@ -38,7 +38,12 @@ public class Controller implements Initializable {
 
     }
 
-
+    /**
+     * s'utiliza per conectarse a la base de dades
+     * @param user
+     * @param password
+     * @return
+     */
     public static Connection databaseConneciton(String user, String password) {
         Connection conexion = null;
         try {
@@ -100,6 +105,11 @@ public class Controller implements Initializable {
         return null;
     }
 
+    /**
+     * Mostra una nova pantalla i li envia el el usuari
+     * @param fxml
+     * @throws IOException
+     */
     public void showNewScreen(String fxml) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource(fxml));
         Parent root = (Parent) loader.load();
@@ -113,7 +123,9 @@ public class Controller implements Initializable {
         chatControl.setNamUserRebutDeController(txtUser.getText());
     }
 
-
+    /**
+     * funcio que tanca la finestre cuan apretas el boto "x"
+     */
     @FXML
     private void closeButtonAction() {
         // get a handle to the stage

@@ -20,7 +20,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ResourceBundle;
 
-public class AppInsideControl implements Initializable {
+public class AppInsideControl  {
     String user = null;
     String pass = null;
     @FXML
@@ -34,17 +34,8 @@ public class AppInsideControl implements Initializable {
     @FXML
     Button btn_close;
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
 
-    }
-//
-//    public void enviaDada(String user, String pass) {
-//
-//        lbl_userName.setText(user);
-//        this.user = user;
-//        this.pass = pass;
-//    }
+
 
     /**
      * s'utilizaria per buscar un usuari

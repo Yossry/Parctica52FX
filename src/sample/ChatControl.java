@@ -29,55 +29,63 @@ public class ChatControl implements Initializable {
     @FXML
     TextArea txtAreaChat;
 
+    /**
+     * @return el nick del usuari
+     */
     public String getNickDelUsuariDelChat() {
         return nickDelUsuariDelChat;
     }
+
+    /**
+     * @return el nom del usuari que el controller li envia
+     */
 
     public String getNamUserRebutDeController() {
         return namUserRebutDeController;
     }
 
+    /**
+     * @param namUserRebutDeController
+     */
     public void setNamUserRebutDeController(String namUserRebutDeController) {
         this.namUserRebutDeController = namUserRebutDeController;
     }
 
     @FXML
     ListView<String> llistaNicks = new ListView<>();
-
     Connection connection = Controller.databaseConneciton("adminadmin", "adminadmin");
-
     LocalDateTime localDateTime; // la fecjha para el chat
     String namUserRebutDeController; // esta es nick del usuario que se a conectado al chat importante:; es el nick no el nombre de usuario
     String nickDelUsuariDelChat;
 
+    /**
+     * s'utiliza  per buscar usuaris conectats
+     */
     public void buscaUsersConectats() {
-
-
         try {
             Statement sentencia = connection.createStatement();
             //busca users conectados en la bd postgres
             ResultSet resultSet = sentencia.executeQuery("select nick from users where connected='true'; ");
-
             while (resultSet.next()) {
                 System.out.println(llistaNicks.getItems().add(resultSet.getString(1)));
             }
-
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
     }
 
+    /**
+     * @param nom nom del usuari
+     * @return el nick de usuari introduit
+     */
     public String cercaNickDelUsuari(String nom) {
-
-
         try {
             Statement sentencia = connection.createStatement();
             //busca el nick del usuari logejat conectados en la bd postgres
             String user = getNamUserRebutDeController();
             System.err.println(user);
             ResultSet resultSet = sentencia.executeQuery("select nick from users where username='" + getNamUserRebutDeController() + "'; ");
-
             while (resultSet.next()) {
                 nickDelUsuariDelChat = resultSet.getString("nick");
             }
@@ -87,19 +95,16 @@ public class ChatControl implements Initializable {
         return nickDelUsuariDelChat;
     }
 
-
+    /**
+     * afegim al missatge la data, per enviar-ho al textarea
+     */
     public void enviarText() {
 
         localDateTime = LocalDateTime.now();
-
         String dataFormateada = localDateTime.format(FORMATTER);
-
-
         String user = cercaNickDelUsuari(getNamUserRebutDeController());
         txtAreaChat.appendText(dataFormateada + " " + user + ": " + txt_textToSend.getText() + "\n");
-
         // teexa el lavel text per enviar text
-
         txt_textToSend.clear();
     }
 
@@ -107,7 +112,6 @@ public class ChatControl implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         //lo primero que hace es buscar usuarios conectados
         //todo obserbable i  poner en tru el usuario para que salga como conectado
-
 
 
         userUpdateStateConection(true);
@@ -126,6 +130,9 @@ public class ChatControl implements Initializable {
 //        }
     }
 
+    /**
+     * gsjdklgjfñdsksgsdg
+     */
     @FXML
     public void closeButtonAction() {
         userUpdateStateConection(false);
